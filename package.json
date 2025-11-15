@@ -1,0 +1,53 @@
+{
+  "name": "next-smart-toast",
+  "version": "1.0.0",
+  "description": "Lightweight, configurable toast notification system for Next.js and React (Framer Motion + Tailwind ready).",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ashrafabusunaina1986/next-smart-toast",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashrafabusunaina1986/next-smart-toast.git"
+  },
+  "scripts": {
+    "build:ts": "tsc",
+    "build:rollup": "rollup -c",
+    "build": "npm run build:ts && npm run build:rollup",
+    "prepare": "npm run build",
+    "test": "echo \"No tests\"",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "toast",
+    "notification",
+    "framer-motion",
+    "tailwind"
+  ],
+  "author": "Ashraf abu sunaina",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "framer-motion": "^12",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "eslint": "^8.0.0",
+    "rollup": "^3.29.5",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^5.9.3"
+  }
+}
