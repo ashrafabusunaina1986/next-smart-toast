@@ -23,5 +23,8 @@ Install as a peer dependency (Framer Motion is kept as peer):
 ```bash
 npm install next-smart-toast
 # or
+
 yarn add next-smart-toast
+
+
 
