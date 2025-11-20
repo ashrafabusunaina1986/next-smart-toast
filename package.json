@@ -1,7 +1,7 @@
 {
   "name": "next-smart-toast",
-  "version": "0.0.2",
-  "description": "Lightweight, configurable toast notification system for Next.js and React (Framer Motion + Tailwind ready).",
+  "version": "0.0.7",
+  "description": "Lightweight, configurable toast notification system for Next.js and React (Framer Motion based).",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -17,11 +17,7 @@
   "scripts": {
     "build:ts": "tsc",
     "build:rollup": "rollup -c",
-    "build": "npm run build:ts && npm run build:rollup",
-    "prepare": "npm run build",
-    "test": "echo \"No tests\"",
-    "lint": "eslint src --ext .ts,.tsx",
-    "start": "npx tsx src/App.tsx"
+    "build": "npm run build:ts && npm run build:rollup"
   },
   "keywords": [
     "nextjs",
@@ -29,31 +25,25 @@
     "toast",
     "notification",
     "framer-motion",
-    "tailwind"
+    "react-toast"
   ],
   "author": "Ashraf abu sunaina",
   "license": "MIT",
   "peerDependencies": {
     "framer-motion": "^12.23.24",
-    "tailwindcss": "^4.1.17",
     "react": ">=19",
     "react-dom": ">=19"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.3.1",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.3.0",
-    "@types/node": "^24.10.1",
+    "@rollup/plugin-commonjs": "^24",
+    "@rollup/plugin-node-resolve": "^15",
+    "@rollup/plugin-typescript": "^12",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^8.0.0",
-    "rollup": "^3.29.5",
-    "rollup-plugin-dts": "^6.2.3",
-    "rollup-plugin-typescript2": "^0.34.0",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.20.6",
+    "rollup": "^3",
+    "rollup-plugin-dts": "^6",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tsx": "^4",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {}
+  }
 }

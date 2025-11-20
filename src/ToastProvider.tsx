@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 import ToastMessage, { ToastType, ToastPosition } from './ToastMessage';
 
@@ -15,43 +14,21 @@ interface ToastContextProps {
   showToast: (toast: Omit<ToastItem, 'id'>) => void;
 }
 
-type QueueOverflowStrategy = 'reject' | 'drop-oldest' | 'drop-latest';
-
 export const ToastContext = createContext<ToastContextProps | undefined>(undefined);
 
 export const ToastProvider = ({
   children,
-  maxQueue = 5,
-  overflowStrategy = 'drop-oldest'
+  maxQueue = 5
 }: {
   children: ReactNode;
   maxQueue?: number;
-  overflowStrategy?: QueueOverflowStrategy;
 }) => {
-
   const [queue, setQueue] = useState<ToastItem[]>([]);
   const [current, setCurrent] = useState<ToastItem | null>(null);
 
-  const showToast = useCallback(
-    (toast: Omit<ToastItem, 'id'>) => {
-      setQueue(prev => {
-        if (prev.length < maxQueue) {
-          return [...prev, { ...toast, id: Date.now() }];
-        }
-        if (overflowStrategy === 'reject') {
-          return prev;
-        }
-        if (overflowStrategy === 'drop-oldest') {
-          return [...prev.slice(1), { ...toast, id: Date.now() }];
-        }
-        if (overflowStrategy === 'drop-latest') {
-          return [...prev.slice(0, prev.length - 1), { ...toast, id: Date.now() }];
-        }
-        return prev;
-      });
-    },
-    [maxQueue, overflowStrategy]
-  );
+  const showToast = useCallback((toast: Omit<ToastItem, 'id'>) => {
+    setQueue(prev => [...prev, { ...toast, id: Date.now() }].slice(-maxQueue));
+  }, [maxQueue]);
 
   React.useEffect(() => {
     if (!current && queue.length > 0) {
@@ -69,8 +46,8 @@ export const ToastProvider = ({
         <ToastMessage
           message={current.message}
           type={current.type}
-          state={current.position}
-          viewDuration={current.duration}
+          position={current.position}
+          duration={current.duration}
           direction={current.direction}
           onClose={handleClose}
         />

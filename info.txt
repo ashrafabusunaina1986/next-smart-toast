@@ -1,9 +1,0 @@
-next-smart-toast/
-├─ package.json
-├─ tsconfig.json
-├─ README.md
-├─ src/
-│  ├─ index.ts
-│  ├─ ToastProvider.tsx
-│  └─ ToastMessage.tsx
-└─ dist/ (بعد البناء)
