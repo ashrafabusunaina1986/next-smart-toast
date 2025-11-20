@@ -11,7 +11,7 @@ interface ToastProps {
     onClose?: () => void;
     direction?: 'rtl' | 'ltr';
 }
-declare function ToastMessage({ message, type, position, duration, direction, onClose }: ToastProps): react_jsx_runtime.JSX.Element;
+declare function ToastMessage({ message, type, position, duration, direction, onClose }: ToastProps): react_jsx_runtime.JSX.Element | null;
 
 interface ToastItem {
     id: number;

@@ -8,4 +8,4 @@ export interface ToastProps {
     onClose?: () => void;
     direction?: 'rtl' | 'ltr';
 }
-export default function ToastMessage({ message, type, position, duration, direction, onClose }: ToastProps): import("react/jsx-runtime").JSX.Element;
+export default function ToastMessage({ message, type, position, duration, direction, onClose }: ToastProps): import("react/jsx-runtime").JSX.Element | null;
